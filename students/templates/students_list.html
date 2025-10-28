@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students List</title>
+</head>
+<body>
+<h2>Students List</h2>
+
+<a href="{% url 'add_student' %}">➕ Add New</a>
+
+<table border="1">
+  <tr>
+    <th>Name</th><th>Age</th><th>Email</th><th>Classroom</th><th>Actions</th>
+  </tr>
+  {% for s in students %}
+  <tr>
+    <td>{{ s.name }}</td><td>{{ s.age }}</td><td>{{ s.email }}</td><td>{{ s.classroom }}</td>
+    <td>
+      <a href="{% url 'update_student' s.id %}">Edit</a> |
+      <a href="{% url 'delete_student' s.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+
+
+
+
+</body>
+</html>
